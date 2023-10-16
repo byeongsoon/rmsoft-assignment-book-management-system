@@ -63,9 +63,9 @@ spring:
       on-profile: prod
 
   datasource:
-    url: ENC(JBFCweV3t6i8gVCNl+CyT+BBsyuPPW1XtUcpZZnY+T2JCRpBIW7qKzJQQAmg7V/+ArTk+73AFO4mETCR14IcFiysms6TXN+WCpE52pT7uft55Otsk7k6n1uiTn5uV5pEFM04T1NmCZeSmExoQTZUa7/bnYK+9CloCw+vvUinrrK9I3CIqRPPanVBoCT5aFGohRsN56pplX8ZYLjsnSKoxw==)
-    username: ENC(JEkG2xOqZIJAMDOyYNl+7g==)
-    password: ENC(YT2rU++AIy4NGwgidunG6Q==)
+    url: ENC(iUg5szcRTbVNppK/PBLM+F2LHt1juizTPSTGiDanDgGn284ENFPqBzLnrJZG0EjlcW5UtDSxYPXNRW0ahrWv89yo3hbuI3JQg71YUXrtEtkD73U5rqbCoFexybesTdjZSYwIQb6ElrYPZVAndTgCs45gpk/eb6ABjaYhTKkrD5hLrhKeaLRh7SRXaHa6jY6p60M9ZJ23ZsuuJbzAtDwg0w==)
+    username: ENC(wac3HC4lzklXGnwpcXNEjA==)
+    password: ENC(K5C3eJrC+uLZ9/hf8dMlGg==)
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
