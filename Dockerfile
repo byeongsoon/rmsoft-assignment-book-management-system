@@ -8,4 +8,4 @@ COPY build/libs/*.jar app.jar
 
 EXPOSE 80
 
-ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -Dspring.profiles.active=prod -jar /app.jar"]
+ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -Dspring.profiles.active=prod -jar app.jar"]
