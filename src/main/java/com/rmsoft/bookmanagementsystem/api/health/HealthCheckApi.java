@@ -11,7 +11,7 @@ public class HealthCheckApi {
 
     @GetMapping
     public ResponseEntity<String> healthCheck() {
-        return ResponseEntity.ok("status : UP");
+        return ResponseEntity.ok("status : UP Test");
     }
 
 }
