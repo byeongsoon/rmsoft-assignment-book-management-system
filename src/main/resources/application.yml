@@ -63,9 +63,9 @@ spring:
       on-profile: prod
 
   datasource:
-    url: ENC(LO3KWsj9tcS7zVyM9T+ZLVOQgG9nSQVyljHaEd72fwF09AJhn3Yf7AjmMlM5ynjBZCI6i5kJTqKHPls3MCvAgSNGYZDRCjw/AuhZ3wa1gfWoFXqENXbXj6dgg0dpubz2wMbGrrp20IQsjT11su++2QTdTIIYWjR6gsASF10qNk0ofy+BlqsEsVuNxdj65cichDZleSus/VP0a3oCko7yFg==)
-    username: ENC(JEkG2xOqZIJAMDOyYNl+7g==)
-    password: ENC(YT2rU++AIy4NGwgidunG6Q==)
+    url: ENC(n6HZ5PkbS65UDoAjLkYGABjzISTNt3ESJpCYM15BhEq0ezJO+8vzz9lGAJU5ulq3h3reM3AopIKj+J5CYKY9txgNAt5buhZWmx1h18bnomi3SdLFQcJYB5JSvIcKAKBiK8w4HyoXXOmADDA+rIbSziPOI1ckRfsxs6tgm5B78H6t7gxqcfpJML/IZpGe7tsc/R4faYnEoIcPaLOssYpI5fe+ZMX4YV44bucC56tCIkVzVl0pXnuLFUerpfvAiHXdNmDtuopkYgg=)
+    username: ENC(iCzLgUQucSa73+DXgicCKA==)
+    password: ENC(ESr+kp1OVsquL55IEnPcR5ksk2u5fxF9)
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
