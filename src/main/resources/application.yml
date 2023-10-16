@@ -1,0 +1,89 @@
+spring:
+  profiles:
+    group:
+      dev:
+        - dev
+        - common
+      prod:
+        - prod
+        - common
+      test:
+        - test
+        - common
+
+---
+server:
+  port: 80
+  servlet:
+    context-path: /
+
+spring:
+  config:
+    activate:
+      on-profile: common
+  application:
+    name: BOOK-MANAGEMENT-SYSTEM
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        format_sql: true
+        show_sql: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    url: ENC(yrX74xt/1V9KttLPO1MXLQz7Q+oMRsotZq6t+rV91aUqTx/Gz6tkQJN9vs8Lk36FkB3B/iGMDYQXUuMb9Ike6ox0oTiqL2imqopjlJPEotN+VPC0jNKkCKLHAtrf5y8z6U2tUBWG4Vr2tlo6DYi7TtpIfMpLsglICJ5tfQnQLYC1enm3IV1VJ0IjEb7Z8lHkU0wxw3pWxGXAx/+Hu8kuDQ==)
+    username: ENC(JEkG2xOqZIJAMDOyYNl+7g==)
+    password: ENC(YT2rU++AIy4NGwgidunG6Q==)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    org.hibernate.type: trace
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: ENC(LO3KWsj9tcS7zVyM9T+ZLVOQgG9nSQVyljHaEd72fwF09AJhn3Yf7AjmMlM5ynjBZCI6i5kJTqKHPls3MCvAgSNGYZDRCjw/AuhZ3wa1gfWoFXqENXbXj6dgg0dpubz2wMbGrrp20IQsjT11su++2QTdTIIYWjR6gsASF10qNk0ofy+BlqsEsVuNxdj65cichDZleSus/VP0a3oCko7yFg==)
+    username: ENC(JEkG2xOqZIJAMDOyYNl+7g==)
+    password: ENC(YT2rU++AIy4NGwgidunG6Q==)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    org.hibernate.type: info
+
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    url: jdbc:h2:mem:test
+    username: root
+    password:
+    driver-class-name: org.h2.Driver
