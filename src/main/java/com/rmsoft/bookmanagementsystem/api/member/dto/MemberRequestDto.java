@@ -25,11 +25,11 @@ public class MemberRequestDto {
 
     public static Member toEntity(MemberRequestDto requestDto) {
         return Member.builder()
-            .name(requestDto.name)
-            .age(requestDto.age)
-            .address(requestDto.address)
-            .phoneNumber(requestDto.phoneNumber)
-            .userId(requestDto.userId)
+            .name(requestDto.getName())
+            .age(requestDto.getAge())
+            .address(requestDto.getAddress())
+            .phoneNumber(requestDto.getPhoneNumber())
+            .userId(requestDto.getUserId())
             .build();
     }
 
