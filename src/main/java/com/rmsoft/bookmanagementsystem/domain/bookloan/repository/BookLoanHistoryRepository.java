@@ -6,9 +6,10 @@ import com.rmsoft.bookmanagementsystem.domain.bookloan.model.BookLoanHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookLoanHistoryRepository extends JpaRepository<BookLoanHistory, Long> {
 
-    List<BookLoanHistory> findByBookAndIsReturn(final Book book, final boolean isReturn);
+    Optional<BookLoanHistory> findByBookAndIsReturn(final Book book, final boolean isReturn);
 
 }

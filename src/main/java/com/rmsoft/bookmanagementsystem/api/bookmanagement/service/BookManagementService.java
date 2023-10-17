@@ -56,4 +56,12 @@ public class BookManagementService {
         return BookResponseDto.Loan.of(book.getTitle(), member.getName(), savedLoanHistory.getLoanDate());
     }
 
+    @Transactional
+    public void returnBook(final String title) {
+        Book book = bookService.findByTitle(title);
+        BookLoanHistory loanHistory = bookLoanHistoryService.findByHistory(book);
+
+        loanHistory.bookReturn();
+    }
+
 }

@@ -36,4 +36,10 @@ public class BookManagementController {
         return ResponseEntity.ok(responseDto);
     }
 
+    @PatchMapping("/loans")
+    public ResponseEntity<String> returnBook(@RequestBody @Valid BookRequestDto.BookReturn requestDto) {
+        bookManagementService.returnBook(requestDto.getTitle());
+        return ResponseEntity.ok("정상 반납 되었습니다.");
+    }
+
 }

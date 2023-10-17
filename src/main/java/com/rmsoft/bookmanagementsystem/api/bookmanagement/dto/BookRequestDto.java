@@ -4,10 +4,12 @@ import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
 
 import com.rmsoft.bookmanagementsystem.domain.bookloan.model.BookLoanHistory;
 import com.rmsoft.bookmanagementsystem.domain.member.model.Member;
+
 import jakarta.validation.constraints.NotEmpty;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -54,8 +56,10 @@ public interface BookRequestDto {
     @Getter
     @Builder
     class Loan{
+        @NotEmpty
         private String title;
 
+        @NotEmpty
         private String userId;
 
         public static BookLoanHistory toEntity(Book book, Member member) {
@@ -66,6 +70,13 @@ public interface BookRequestDto {
                 .loanDate(LocalDateTime.now())
                 .build();
         }
+    }
+
+    @Getter
+    @NoArgsConstructor
+    class BookReturn {
+        @NotEmpty
+        private String title;
     }
 
 }
