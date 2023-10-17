@@ -33,4 +33,9 @@ public class Book extends BaseEntity {
 
     private LocalDateTime publicationDate;
 
+    public void updateInformation(final String author, final String publisher, final LocalDateTime publicationDate) {
+        this.author = author;
+        this.publisher = publisher;
+        this.publicationDate = publicationDate;
+    }
 }

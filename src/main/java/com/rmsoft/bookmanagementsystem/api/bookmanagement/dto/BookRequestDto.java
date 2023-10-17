@@ -37,4 +37,16 @@ public interface BookRequestDto {
         }
     }
 
+    @Getter
+    @Builder
+    class Update {
+        private Long id;
+
+        private String author;
+
+        private String publisher;
+
+        private LocalDateTime publicationDate;
+    }
+
 }

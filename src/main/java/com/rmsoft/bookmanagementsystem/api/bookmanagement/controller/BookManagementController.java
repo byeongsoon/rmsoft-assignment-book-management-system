@@ -9,10 +9,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,8 +19,14 @@ public class BookManagementController {
     private final BookManagementService bookManagementService;
 
     @PostMapping
-    public ResponseEntity<BookResponseDto.Register> register(@RequestBody @Valid BookRequestDto.Register requestDto) {
-        BookResponseDto.Register responseDto = bookManagementService.register(requestDto);
+    public ResponseEntity<BookResponseDto> register(@RequestBody @Valid BookRequestDto.Register requestDto) {
+        BookResponseDto responseDto = bookManagementService.register(requestDto);
+        return ResponseEntity.ok(responseDto);
+    }
+
+    @PatchMapping
+    public ResponseEntity<BookResponseDto> updateBookInformation(@RequestBody @Valid BookRequestDto.Update requestDto) {
+        BookResponseDto responseDto = bookManagementService.update(requestDto);
         return ResponseEntity.ok(responseDto);
     }
 
