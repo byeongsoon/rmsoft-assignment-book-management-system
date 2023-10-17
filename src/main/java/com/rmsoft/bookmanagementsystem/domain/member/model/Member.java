@@ -2,10 +2,7 @@ package com.rmsoft.bookmanagementsystem.domain.member.model;
 
 import com.rmsoft.bookmanagementsystem.domain.common.BaseEntity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,14 +20,17 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
     private Integer age;
 
     private String address;
 
+    @Column(unique = true, length = 30, nullable = false)
     private String phoneNumber;
 
+    @Column(unique = true, length = 20, nullable = false)
     private String userId;
 
 }
