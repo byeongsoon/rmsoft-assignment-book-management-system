@@ -2,7 +2,8 @@ package com.rmsoft.bookmanagementsystem.api.bookmanagement.dto;
 
 import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
 
-import jakarta.validation.constraints.NotBlank;
+import com.rmsoft.bookmanagementsystem.domain.bookloan.model.BookLoanHistory;
+import com.rmsoft.bookmanagementsystem.domain.member.model.Member;
 import jakarta.validation.constraints.NotEmpty;
 
 import lombok.Builder;
@@ -48,6 +49,23 @@ public interface BookRequestDto {
         private String publisher;
 
         private LocalDateTime publicationDate;
+    }
+
+    @Getter
+    @Builder
+    class Loan{
+        private String title;
+
+        private String userId;
+
+        public static BookLoanHistory toEntity(Book book, Member member) {
+            return  BookLoanHistory.builder()
+                .book(book)
+                .member(member)
+                .isReturn(false)
+                .loanDate(LocalDateTime.now())
+                .build();
+        }
     }
 
 }

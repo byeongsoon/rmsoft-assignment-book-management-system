@@ -7,31 +7,51 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Builder
-public class BookResponseDto {
+public interface BookResponseDto {
 
-    private Long id;
+    @Getter
+    @Builder
+    class BookInfo {
+        private Long id;
 
-    private String title;
+        private String title;
 
-    private String author;
+        private String author;
 
-    private String publisher;
+        private String publisher;
 
-    private String category;
+        private String category;
 
-    private LocalDateTime publicationDate;
+        private LocalDateTime publicationDate;
 
-    public static BookResponseDto of(Book book) {
-        return BookResponseDto.builder()
-            .id(book.getId())
-            .title(book.getTitle())
-            .author(book.getAuthor())
-            .publisher(book.getPublisher())
-            .category(book.getCategory())
-            .publicationDate(book.getPublicationDate())
-            .build();
+        public static BookResponseDto.BookInfo of(Book book) {
+            return BookResponseDto.BookInfo.builder()
+                .id(book.getId())
+                .title(book.getTitle())
+                .author(book.getAuthor())
+                .publisher(book.getPublisher())
+                .category(book.getCategory())
+                .publicationDate(book.getPublicationDate())
+                .build();
+        }
+    }
+
+    @Getter
+    @Builder
+    class Loan {
+        private String title;
+
+        private String memberName;
+
+        private LocalDateTime loanDate;
+
+        public static BookResponseDto.Loan of(String title, String memberName, LocalDateTime loanDate) {
+            return Loan.builder()
+                .title(title)
+                .memberName(memberName)
+                .loanDate(loanDate)
+                .build();
+        }
     }
 
 }

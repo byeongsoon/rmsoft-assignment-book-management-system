@@ -19,14 +19,20 @@ public class BookManagementController {
     private final BookManagementService bookManagementService;
 
     @PostMapping
-    public ResponseEntity<BookResponseDto> register(@RequestBody @Valid BookRequestDto.Register requestDto) {
-        BookResponseDto responseDto = bookManagementService.register(requestDto);
+    public ResponseEntity<BookResponseDto.BookInfo> register(@RequestBody @Valid BookRequestDto.Register requestDto) {
+        BookResponseDto.BookInfo responseDto = bookManagementService.register(requestDto);
         return ResponseEntity.ok(responseDto);
     }
 
     @PatchMapping
-    public ResponseEntity<BookResponseDto> updateBookInformation(@RequestBody @Valid BookRequestDto.Update requestDto) {
-        BookResponseDto responseDto = bookManagementService.update(requestDto);
+    public ResponseEntity<BookResponseDto.BookInfo> updateBookInformation(@RequestBody @Valid BookRequestDto.Update requestDto) {
+        BookResponseDto.BookInfo responseDto = bookManagementService.update(requestDto);
+        return ResponseEntity.ok(responseDto);
+    }
+
+    @PostMapping("/loans")
+    public ResponseEntity<BookResponseDto.Loan> loanBook(@RequestBody @Valid BookRequestDto.Loan requestDto) {
+        BookResponseDto.Loan responseDto = bookManagementService.loan(requestDto);
         return ResponseEntity.ok(responseDto);
     }
 

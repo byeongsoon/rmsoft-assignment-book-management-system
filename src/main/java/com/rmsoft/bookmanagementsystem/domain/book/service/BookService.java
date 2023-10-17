@@ -2,9 +2,10 @@ package com.rmsoft.bookmanagementsystem.domain.book.service;
 
 import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
 import com.rmsoft.bookmanagementsystem.domain.book.repositroy.BookRepository;
-import com.rmsoft.bookmanagementsystem.domain.member.model.Member;
 import com.rmsoft.bookmanagementsystem.global.error.exception.BusinessException;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,4 +38,15 @@ public class BookService {
 
         return findBook.get();
     }
+
+    public Book findByTitle(final String title) {
+        Optional<Book> findBook = bookRepository.findByTitle(title);
+
+        if (findBook.isEmpty()) {
+            throw new BusinessException(400, "해당 책은 등록되어있지 않습니다.");
+        }
+
+        return findBook.get();
+    }
+
 }
