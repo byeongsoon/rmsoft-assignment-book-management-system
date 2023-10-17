@@ -1,6 +1,7 @@
 package com.rmsoft.bookmanagementsystem.api.bookmanagement.dto;
 
 import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
+import com.rmsoft.bookmanagementsystem.domain.bookloan.model.BookLoanHistory;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -50,6 +51,33 @@ public interface BookResponseDto {
                 .title(title)
                 .memberName(memberName)
                 .loanDate(loanDate)
+                .build();
+        }
+    }
+
+    @Getter
+    @Builder
+    class LoanHistory {
+        private Long id;
+
+        private String bookTitle;
+
+        private String memberName;
+
+        private boolean isReturn;
+
+        private LocalDateTime loanDate;
+
+        private LocalDateTime returnDate;
+
+        public static BookResponseDto.LoanHistory from(BookLoanHistory loanHistory) {
+            return LoanHistory.builder()
+                .id(loanHistory.getId())
+                .bookTitle(loanHistory.getBook().getTitle())
+                .memberName(loanHistory.getMember().getName())
+                .isReturn(loanHistory.getIsReturn())
+                .loanDate(loanHistory.getLoanDate())
+                .returnDate(loanHistory.getReturnDate())
                 .build();
         }
     }

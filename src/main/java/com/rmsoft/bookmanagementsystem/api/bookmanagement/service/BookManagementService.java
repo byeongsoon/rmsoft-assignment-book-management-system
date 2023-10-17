@@ -15,6 +15,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class BookManagementService {
@@ -59,9 +62,18 @@ public class BookManagementService {
     @Transactional
     public void returnBook(final String title) {
         Book book = bookService.findByTitle(title);
-        BookLoanHistory loanHistory = bookLoanHistoryService.findByHistory(book);
+        BookLoanHistory loanHistory = bookLoanHistoryService.findHistoryByBook(book);
 
         loanHistory.bookReturn();
+    }
+
+    public List<BookResponseDto.LoanHistory> getResponseDtos(final String title) {
+        Book book = bookService.findByTitle(title);
+        List<BookLoanHistory> loanHistories = bookLoanHistoryService.findAllHistory(book);
+
+        return loanHistories.stream()
+            .map(BookResponseDto.LoanHistory::from)
+            .collect(Collectors.toList());
     }
 
 }

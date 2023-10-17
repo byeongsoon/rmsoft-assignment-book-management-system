@@ -31,7 +31,7 @@ public class BookLoanHistoryService {
         return loanHistories.isEmpty();
     }
 
-    public BookLoanHistory findByHistory(final Book book) {
+    public BookLoanHistory findHistoryByBook(final Book book) {
         Optional<BookLoanHistory> loanHistory = bookLoanHistoryRepository.findByBookAndIsReturn(book, false);
 
         if (loanHistory.isEmpty()) {
@@ -40,4 +40,15 @@ public class BookLoanHistoryService {
 
         return loanHistory.get();
     }
+
+    public List<BookLoanHistory> findAllHistory(final Book book) {
+        List<BookLoanHistory> loanHistories = bookLoanHistoryRepository.findAllByBook(book);
+
+        if (loanHistories.isEmpty()) {
+            throw new BusinessException(204, "해당 책의 대출이력이 없습니다.");
+        }
+
+        return loanHistories;
+    }
+
 }

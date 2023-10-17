@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/books")
@@ -28,6 +30,12 @@ public class BookManagementController {
     public ResponseEntity<BookResponseDto.BookInfo> updateBookInformation(@RequestBody @Valid BookRequestDto.Update requestDto) {
         BookResponseDto.BookInfo responseDto = bookManagementService.update(requestDto);
         return ResponseEntity.ok(responseDto);
+    }
+
+    @GetMapping("/loans")
+    public ResponseEntity<List<BookResponseDto.LoanHistory>> findHistory(@RequestParam String title) {
+        List<BookResponseDto.LoanHistory> loanHistories = bookManagementService.getResponseDtos(title);
+        return ResponseEntity.ok(loanHistories);
     }
 
     @PostMapping("/loans")

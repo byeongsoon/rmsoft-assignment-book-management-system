@@ -12,4 +12,6 @@ public interface BookLoanHistoryRepository extends JpaRepository<BookLoanHistory
 
     Optional<BookLoanHistory> findByBookAndIsReturn(final Book book, final boolean isReturn);
 
+    List<BookLoanHistory> findAllByBook(final Book book);
+
 }
