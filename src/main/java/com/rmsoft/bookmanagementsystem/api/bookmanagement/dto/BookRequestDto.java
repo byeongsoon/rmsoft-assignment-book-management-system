@@ -2,6 +2,7 @@ package com.rmsoft.bookmanagementsystem.api.bookmanagement.dto;
 
 import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 
 import lombok.Builder;
@@ -40,7 +41,6 @@ public interface BookRequestDto {
     @Getter
     @Builder
     class Update {
-        @NotEmpty
         private Long id;
 
         private String author;
