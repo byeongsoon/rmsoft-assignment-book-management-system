@@ -15,7 +15,7 @@ public class AuditorAwareImpl implements AuditorAware<String> {
         // todo : 사용자 정보 로그인 유지 시 사용자 이름 사용
         String updatedBy = "";
 
-        if (StringUtils.hasText(updatedBy)) {
+        if (!StringUtils.hasText(updatedBy)) {
             updatedBy = "SERVER";
         }
 
