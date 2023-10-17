@@ -32,4 +32,5 @@ public class BookManagementService {
 
         return BookResponseDto.of(findBook);
     }
+
 }

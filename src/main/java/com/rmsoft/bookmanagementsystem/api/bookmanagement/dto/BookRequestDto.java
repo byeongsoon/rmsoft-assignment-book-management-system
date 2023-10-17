@@ -40,6 +40,7 @@ public interface BookRequestDto {
     @Getter
     @Builder
     class Update {
+        @NotEmpty
         private Long id;
 
         private String author;

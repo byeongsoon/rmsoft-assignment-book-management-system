@@ -1,7 +1,7 @@
 package com.rmsoft.bookmanagementsystem.api.bookmanagement.dto;
 
 import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
-import jakarta.validation.constraints.NotEmpty;
+
 import lombok.Builder;
 import lombok.Getter;
 
@@ -33,6 +33,5 @@ public class BookResponseDto {
             .publicationDate(book.getPublicationDate())
             .build();
     }
-
 
 }
