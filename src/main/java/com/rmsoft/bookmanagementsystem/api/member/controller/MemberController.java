@@ -4,6 +4,7 @@ import com.rmsoft.bookmanagementsystem.api.member.dto.MemberRequestDto;
 import com.rmsoft.bookmanagementsystem.api.member.dto.MemberResponseDto;
 import com.rmsoft.bookmanagementsystem.api.member.service.MemberInfoService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class MemberController {
     private final MemberInfoService memberService;
 
     @PostMapping
-    public ResponseEntity<MemberResponseDto> register(@RequestBody MemberRequestDto requestDto) {
+    public ResponseEntity<MemberResponseDto> register(@RequestBody @Valid MemberRequestDto requestDto) {
         MemberResponseDto responseDto = memberService.register(requestDto);
         return ResponseEntity.ok(responseDto);
     }
