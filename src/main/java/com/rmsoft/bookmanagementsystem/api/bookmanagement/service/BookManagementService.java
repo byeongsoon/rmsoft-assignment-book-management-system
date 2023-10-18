@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class BookManagementService {
 
     private final BookService bookService;
@@ -45,6 +46,7 @@ public class BookManagementService {
         return BookResponseDto.BookInfo.of(findBook);
     }
 
+    @Transactional
     public BookResponseDto.Loan loan(final BookRequestDto.Loan requestDto) {
         Book book = bookService.findByTitle(requestDto.getTitle());
         Member member = memberService.findByUserId(requestDto.getUserId());
