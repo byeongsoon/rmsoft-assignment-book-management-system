@@ -39,15 +39,15 @@ public interface BookResponseDto {
 
     @Getter
     @Builder
-    class Loan {
+    class LoanResult {
         private String title;
 
         private String memberName;
 
         private LocalDateTime loanDate;
 
-        public static BookResponseDto.Loan of(String title, String memberName, LocalDateTime loanDate) {
-            return Loan.builder()
+        public static LoanResult of(String title, String memberName, LocalDateTime loanDate) {
+            return LoanResult.builder()
                 .title(title)
                 .memberName(memberName)
                 .loanDate(loanDate)

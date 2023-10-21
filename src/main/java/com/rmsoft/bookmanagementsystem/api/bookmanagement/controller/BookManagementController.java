@@ -82,7 +82,7 @@ public class BookManagementController {
     @Operation(summary = "도서 대출 요청", description = "도서를 대출합니다.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", description = "성공",
-            content = @Content(schema = @Schema(implementation = BookResponseDto.Loan.class))),
+            content = @Content(schema = @Schema(implementation = BookResponseDto.LoanResult.class))),
         @ApiResponse(responseCode = "403", description = "해당 책은 등록되어있지 않습니다.",
             content = @Content(schema = @Schema(implementation = ErrorResponse.class))),
         @ApiResponse(responseCode = "400", description = "해당 책은 이미 대출되어 있습니다.",
@@ -91,10 +91,10 @@ public class BookManagementController {
             content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     })
     @PostMapping("/loans")
-    public ResponseEntity<BookResponseDto.Loan> loanBook(
+    public ResponseEntity<BookResponseDto.LoanResult> loanBook(
         @Parameter(description = "도서 대출 요청을 위한 사용자ID, 도서 제목") @RequestBody @Valid BookRequestDto.Loan requestDto
     ) {
-        BookResponseDto.Loan responseDto = bookManagementService.loan(requestDto);
+        BookResponseDto.LoanResult responseDto = bookManagementService.loan(requestDto);
         return ResponseEntity.ok(responseDto);
     }
 
