@@ -1,7 +1,9 @@
 package com.rmsoft.bookmanagementsystem.api.bookmanagement.dto;
 
-import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
+import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
 import com.rmsoft.bookmanagementsystem.domain.bookloan.model.BookLoanHistory;
 import com.rmsoft.bookmanagementsystem.domain.member.model.Member;
 
@@ -17,6 +19,7 @@ public interface BookRequestDto {
 
     @Getter
     @Builder
+
     class Register {
         @NotEmpty
         private String title;
@@ -43,6 +46,7 @@ public interface BookRequestDto {
 
     @Getter
     @Builder
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     class Update {
         private Long id;
 
@@ -55,6 +59,7 @@ public interface BookRequestDto {
 
     @Getter
     @Builder
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     class Loan{
         @NotEmpty
         private String title;
