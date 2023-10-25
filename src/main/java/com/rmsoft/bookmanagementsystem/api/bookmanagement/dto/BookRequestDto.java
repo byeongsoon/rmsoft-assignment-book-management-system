@@ -19,7 +19,7 @@ public interface BookRequestDto {
 
     @Getter
     @Builder
-
+    @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
     class Register {
         @NotEmpty
         private String title;
