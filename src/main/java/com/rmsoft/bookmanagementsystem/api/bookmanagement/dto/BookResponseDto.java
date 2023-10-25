@@ -1,5 +1,8 @@
 package com.rmsoft.bookmanagementsystem.api.bookmanagement.dto;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import com.rmsoft.bookmanagementsystem.domain.book.model.Book;
 import com.rmsoft.bookmanagementsystem.domain.bookloan.model.BookLoanHistory;
 
@@ -8,6 +11,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public interface BookResponseDto {
 
     @Getter
@@ -39,15 +43,15 @@ public interface BookResponseDto {
 
     @Getter
     @Builder
-    class Loan {
+    class LoanResult {
         private String title;
 
         private String memberName;
 
         private LocalDateTime loanDate;
 
-        public static BookResponseDto.Loan of(String title, String memberName, LocalDateTime loanDate) {
-            return Loan.builder()
+        public static LoanResult of(String title, String memberName, LocalDateTime loanDate) {
+            return LoanResult.builder()
                 .title(title)
                 .memberName(memberName)
                 .loanDate(loanDate)
